@@ -1,0 +1,52 @@
+---
+import { NAV_LINKS } from '../site.config';
+const year = 2026;
+---
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-word">
+          <span class="brand-purple">Purple</span> <span class="brand-teal">Peaks</span> Apps
+        </span>
+        <p class="tagline">Software for insurance professionals.</p>
+      </div>
+      <nav class="footer-links">
+        {NAV_LINKS.map((l) => (
+          <a href={l.href}>{l.label}</a>
+        ))}
+      </nav>
+    </div>
+
+    <div class="bottom">
+      <p class="copyright">&copy; {year} Purple Peaks Apps LLC.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-dark);
+    color: #e7dcf4;
+    padding: 3rem 0 2rem;
+    margin-top: 3rem;
+  }
+  .footer-inner { display: flex; flex-direction: column; gap: 1.5rem; }
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .brand-word { font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; }
+  .brand-purple { color: var(--color-purple); }
+  .brand-teal { color: var(--color-teal); }
+  .tagline { font-size: 0.85rem; color: #b6a4cb; margin: 0.35rem 0 0; }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; }
+  .footer-links a { color: #d8c8ea; text-decoration: none; font-size: 0.9rem; }
+  .footer-links a:hover { color: var(--color-teal); }
+  .copyright { color: #9e8bb6; font-size: 0.85rem; margin: 0; }
+</style>

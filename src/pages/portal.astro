@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const features = [
+  'Lead capture and lead scoring, so agents can prioritize the contacts most likely to convert',
+  'E-signature workflows for client documents and enrollment paperwork',
+  'Secure client document storage in one central place',
+  'Plan comparison and quoting tools to help agents present options clearly',
+  'Credentials and compliance tracking, so licensing and certifications stay current',
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'PSG Partner Portal',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  description:
+    'PSG Partner Portal is a back-office CRM and client management tool built for independent insurance agents, offering lead management, e-signature workflows, client document storage, and quoting tools.',
+  url: 'https://purplepeaksapps.com/portal',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Purple Peaks Apps',
+    url: 'https://purplepeaksapps.com',
+  },
+};
+---
+<BaseLayout
+  title="PSG Partner Portal — Agent CRM & Back-Office Tools | Purple Peaks Apps"
+  description="PSG Partner Portal is a back-office CRM for independent insurance agents — lead management, e-signatures, client document storage, and quoting tools in one place."
+  path="/portal"
+  jsonLd={jsonLd}
+>
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">Product</p>
+      <h1>PSG Partner Portal</h1>
+      <p class="subhead">
+        A back-office CRM built specifically for independent insurance agents — designed to bring
+        lead management, e-signatures, client records, and quoting tools together in one
+        agent-facing workspace.
+      </p>
+      <a href="/contact" class="btn btn-primary">Get in Touch</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="container grid grid-2 who-what">
+      <div class="card">
+        <p class="eyebrow">What It Does</p>
+        <h2>An agent's back office, in one place</h2>
+        <p>
+          PSG Partner Portal centralizes the day-to-day work of running an independent insurance
+          book of business — from the first lead through signed paperwork — so agents spend less
+          time switching between tools and more time with clients.
+        </p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Who It's For</p>
+        <h2>Independent Medicare and health agents</h2>
+        <p>
+          Built for independent insurance agents, particularly those working in Medicare and
+          health insurance, who need a lightweight, agent-facing system rather than a heavyweight
+          enterprise CRM.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <p class="eyebrow">Feature Overview</p>
+      <h2>What's inside the portal</h2>
+      <ul class="feature-list">
+        {features.map((f) => <li>{f}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-inner">
+      <h2>Want to see it in action?</h2>
+      <p>Reach out and we'll walk you through it.</p>
+      <a href="/contact" class="btn btn-teal">Get in Touch</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2b1147 100%);
+    color: #fff;
+    padding: 5.5rem 0;
+  }
+  .hero-inner { max-width: 700px; }
+  .hero h1 { color: #fff; font-size: clamp(2rem, 4vw, 3rem); }
+  .hero .eyebrow { color: var(--color-teal); }
+  .subhead { font-size: 1.1rem; color: #e2d4f0; margin-bottom: 1.75rem; }
+
+  .who-what .card p:last-child { margin-bottom: 0; }
+
+  .feature-list {
+    max-width: 760px;
+    padding-left: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    font-size: 1.02rem;
+  }
+  .feature-list li { color: var(--color-text); }
+
+  .cta-section {
+    background: var(--color-purple);
+    color: #fff;
+    text-align: center;
+  }
+  .cta-inner h2 { color: #fff; }
+  .cta-inner p { color: #f0e6f8; margin-bottom: 1.5rem; }
+</style>

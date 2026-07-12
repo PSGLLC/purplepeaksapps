@@ -1,0 +1,107 @@
+---
+import { NAV_LINKS } from '../site.config';
+const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+<header class="nav-wrap">
+  <div class="container nav-inner">
+    <a href="/" class="brand">
+      <span class="brand-word">
+        <span class="brand-purple">Purple</span> <span class="brand-teal">Peaks</span> <span class="brand-apps">Apps</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="nav-links">
+      {NAV_LINKS.map((link) => {
+        const isActive = current === link.href.replace(/\/$/, '');
+        return (
+          <a href={link.href} class:list={['nav-link', { active: isActive }]}>{link.label}</a>
+        );
+      })}
+      <a href="/contact" class="btn btn-primary nav-cta">Get in Touch</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  .brand-word {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+  }
+  .brand-purple { color: var(--color-purple); }
+  .brand-teal { color: var(--color-teal); }
+  .brand-apps { color: var(--color-text); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    flex-wrap: wrap;
+  }
+  .nav-link {
+    text-decoration: none;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .nav-link:hover, .nav-link.active { color: var(--color-purple); }
+  :root[data-theme="dark"] .nav-link:hover,
+  :root[data-theme="dark"] .nav-link.active { color: var(--color-teal); }
+  .nav-cta { padding: 0.55rem 1.25rem; font-size: 0.9rem; }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 5px 0;
+    background: var(--color-text);
+  }
+  @media (max-width: 780px) {
+    .nav-toggle { display: block; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem 1.5rem 1.5rem;
+      gap: 1rem;
+    }
+    .nav-links.open { display: flex; }
+    .nav-cta { width: 100%; text-align: center; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+  toggle?.addEventListener('click', () => {
+    const isOpen = links?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(!!isOpen));
+  });
+</script>

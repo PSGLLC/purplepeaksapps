@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Contact — Purple Peaks Apps"
+  description="Get in touch with Purple Peaks Apps about our software tools for insurance professionals, including the PSG Partner Portal."
+  path="/contact"
+>
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">Contact</p>
+      <h1>Get in Touch</h1>
+      <p class="subhead">Questions about our tools, or interested in the PSG Partner Portal? Send us a message.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container form-container">
+      <form id="contact-form" class="card">
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name" />
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" />
+        </div>
+        <div class="form-field">
+          <label for="phone">Phone <span class="optional">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" />
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <!-- Honeypot -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submit-btn">Send Message</button>
+        <p id="form-status" class="form-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2b1147 100%);
+    color: #fff;
+    padding: 4.5rem 0;
+  }
+  .hero h1 { color: #fff; }
+  .hero .eyebrow { color: var(--color-teal); }
+  .subhead { font-size: 1.05rem; color: #e2d4f0; margin: 0; }
+
+  .form-container { max-width: 620px; }
+  .optional { font-weight: 400; color: var(--color-text-muted); font-size: 0.85rem; }
+  .hp-field { position: absolute; left: -9999px; }
+  .form-status { margin-top: 1rem; font-weight: 600; }
+  .form-status.success { color: var(--color-teal); }
+  .form-status.error { color: #c0392b; }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('form-status');
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form || !status || !submitBtn) return;
+
+    const formData = new FormData(form);
+    const payload = {
+      name: String(formData.get('name') ?? '').trim(),
+      email: String(formData.get('email') ?? '').trim(),
+      phone: String(formData.get('phone') ?? '').trim(),
+      message: String(formData.get('message') ?? '').trim(),
+      website: String(formData.get('website') ?? ''),
+      pagePath: window.location.pathname,
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    status.textContent = '';
+    status.className = 'form-status';
+
+    try {
+      const res = await fetch('/api/contact-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+
+      if (res.ok && data.ok) {
+        form.style.display = 'none';
+        status.textContent = "Thanks for reaching out — we'll be in touch soon.";
+        status.className = 'form-status success';
+        status.style.display = 'block';
+      } else {
+        status.textContent = data.error || 'Something went wrong. Please try again.';
+        status.className = 'form-status error';
+      }
+    } catch {
+      status.textContent = 'Something went wrong. Please try again.';
+      status.className = 'form-status error';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+  });
+</script>
