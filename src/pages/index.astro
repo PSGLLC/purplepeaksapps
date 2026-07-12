@@ -10,7 +10,7 @@ const products = [
   },
   {
     name: 'LearnMedicare.org',
-    desc: 'A free, unbiased Medicare education platform for consumers — plain-English lessons on enrollment, coverage options, and penalties, with no sales pitch attached.',
+    desc: 'Free Medicare education platform with 6-lesson video course, interactive calculators, and T65 guide lead capture.',
     href: 'https://learnmedicare.org',
     cta: 'Visit site',
     external: true,
@@ -21,6 +21,13 @@ const products = [
     href: '/contact',
     cta: 'Ask about it',
   },
+  {
+    name: 'Prosperity Services Group',
+    desc: 'Fixed indexed annuity and safe money planning site for retirement-focused clients.',
+    href: 'https://prosperityservicesgroup.com',
+    cta: 'Visit site',
+    external: true,
+  },
 ];
 
 const jsonLd = {
@@ -30,7 +37,7 @@ const jsonLd = {
   url: 'https://purplepeaksapps.com',
   logo: 'https://purplepeaksapps.com/brand/purplepeaksapps-logo.png',
   description:
-    'Purple Peaks Apps builds internal software tools for independent insurance agents, including the PSG Partner Portal, LearnMedicare.org, and self-hosted video conferencing.',
+    'Purple Peaks Apps builds internal software tools for independent insurance agents, including the PSG Partner Portal, LearnMedicare.org, self-hosted video conferencing, and Prosperity Services Group.',
 };
 ---
 <BaseLayout
@@ -57,7 +64,7 @@ const jsonLd = {
     <div class="container">
       <p class="eyebrow">What We Build</p>
       <h2>Software for the way agents actually work.</h2>
-      <div class="grid grid-3">
+      <div class="grid grid-4">
         {products.map((p) => (
           <div class="card product-card">
             <h3>{p.name}</h3>

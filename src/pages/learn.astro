@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const features = [
+  'A 6-lesson video course covering Medicare basics, enrollment periods, and coverage options',
+  'Interactive calculators to help estimate costs and compare plan types',
+  'A dedicated Turning 65 (T65) guide for consumers approaching Medicare eligibility',
+  'Plain-English explanations with no sales pitch attached',
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'LearnMedicare.org',
+  applicationCategory: 'EducationalApplication',
+  operatingSystem: 'Web',
+  description:
+    'LearnMedicare.org is a free Medicare education platform for consumers, offering a 6-lesson video course, interactive calculators, and a Turning 65 guide.',
+  url: 'https://learnmedicare.org',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Purple Peaks Apps',
+    url: 'https://purplepeaksapps.com',
+  },
+};
+---
+<BaseLayout
+  title="LearnMedicare.org — Free Medicare Education | Purple Peaks Apps"
+  description="LearnMedicare.org is a free, unbiased Medicare education platform — a 6-lesson video course, interactive calculators, and a Turning 65 guide for consumers."
+  path="/learn"
+  jsonLd={jsonLd}
+>
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">Product</p>
+      <h1>LearnMedicare.org</h1>
+      <p class="subhead">
+        A free, unbiased Medicare education platform built for consumers — plain-English lessons
+        on enrollment, coverage options, and penalties, with no sales pitch attached.
+      </p>
+      <a href="https://learnmedicare.org" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit LearnMedicare.org</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="container grid grid-2 who-what">
+      <div class="card">
+        <p class="eyebrow">What It Does</p>
+        <h2>Free Medicare education, start to finish</h2>
+        <p>
+          LearnMedicare.org walks consumers through Medicare in plain English — a 6-lesson video
+          course, interactive calculators to estimate costs and compare plan types, and a dedicated
+          Turning 65 (T65) guide for people approaching Medicare eligibility.
+        </p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Who It's For</p>
+        <h2>Medicare-eligible consumers</h2>
+        <p>
+          Built for people who are Medicare-eligible or approaching eligibility and want to
+          understand their options — enrollment periods, coverage types, and potential penalties —
+          before they enroll, without a sales pitch attached.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <p class="eyebrow">What's Inside</p>
+      <h2>What you'll find on LearnMedicare.org</h2>
+      <ul class="feature-list">
+        {features.map((f) => <li>{f}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-inner">
+      <h2>Ready to learn about your Medicare options?</h2>
+      <p>Visit LearnMedicare.org to get started — free, no sales pitch.</p>
+      <a href="https://learnmedicare.org" target="_blank" rel="noopener noreferrer" class="btn btn-teal">Visit LearnMedicare.org</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2b1147 100%);
+    color: #fff;
+    padding: 5.5rem 0;
+  }
+  .hero-inner { max-width: 700px; }
+  .hero h1 { color: #fff; font-size: clamp(2rem, 4vw, 3rem); }
+  .hero .eyebrow { color: var(--color-teal); }
+  .subhead { font-size: 1.1rem; color: #e2d4f0; margin-bottom: 1.75rem; }
+
+  .who-what .card p:last-child { margin-bottom: 0; }
+
+  .feature-list {
+    max-width: 760px;
+    padding-left: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    font-size: 1.02rem;
+  }
+  .feature-list li { color: var(--color-text); }
+
+  .cta-section {
+    background: var(--color-purple);
+    color: #fff;
+    text-align: center;
+  }
+  .cta-inner h2 { color: #fff; }
+  .cta-inner p { color: #f0e6f8; margin-bottom: 1.5rem; }
+</style>
