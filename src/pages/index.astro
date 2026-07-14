@@ -39,12 +39,59 @@ const jsonLd = {
   description:
     'Purple Peaks Apps builds internal software tools for independent insurance agents, including the PSG Partner Portal, LearnMedicare.org, self-hosted video conferencing, and Prosperity Services Group.',
 };
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What does Purple Peaks Apps build?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Purple Peaks Apps is the technology arm behind Price Services Group's digital tools. We build software that helps independent insurance agents manage clients, get educated, and meet with confidence, including an agent CRM and back-office portal, a free consumer education platform, and self-hosted video conferencing for client consultations.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the PSG Partner Portal?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The PSG Partner Portal is a back-office CRM built for independent insurance agents, bringing lead management, e-signature workflows, and quoting tools into one place so agents can spend less time on admin and more time with clients.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is LearnMedicare.org?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'LearnMedicare.org is a free Medicare education platform featuring a 6-lesson video course, interactive calculators, and a T65 guide for people approaching Medicare eligibility.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does Purple Peaks Apps offer video conferencing for client meetings?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Our Jitsi Video Rooms product provides secure, self-hosted video meeting rooms for client consultations, giving agents a private, reliable way to meet clients face-to-face online.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Who is Purple Peaks Apps built for?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Our products are built for independent insurance agents and agencies, with tools spanning agent-facing CRM and quoting software, consumer-facing education platforms, and retirement planning sites like Prosperity Services Group.',
+      },
+    },
+  ],
+};
 ---
 <BaseLayout
   title="Purple Peaks Apps — Building Smart Tools for Insurance Professionals"
   description="Purple Peaks Apps is the technology arm behind Price Services Group's digital tools — building software that helps independent insurance agents work smarter."
   path="/"
-  jsonLd={jsonLd}
+  jsonLd={[jsonLd, faqJsonLd]}
 >
   <section class="hero">
     <div class="container hero-inner">
