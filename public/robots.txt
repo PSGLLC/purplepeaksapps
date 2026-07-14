@@ -28,4 +28,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://purplepeaksapps.com/sitemap.xml
+Sitemap: https://purplepeaksapps.com/sitemap-index.xml
