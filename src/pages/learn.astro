@@ -8,6 +8,14 @@ const features = [
   'Plain-English explanations with no sales pitch attached',
 ];
 
+const portalUpdates = [
+  'A Drug Savings/PAP database for finding patient assistance programs',
+  'A Social Media Ad Planner for building out campaigns',
+  'A Plan Comparison tool for evaluating coverage side by side',
+  'A Coverage Gap Tracker to flag clients approaching the donut hole',
+  'Client Satisfaction Surveys for gathering feedback after enrollment',
+];
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
@@ -71,6 +79,20 @@ const jsonLd = {
       <h2>What you'll find on LearnMedicare.org</h2>
       <ul class="feature-list">
         {features.map((f) => <li>{f}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <p class="eyebrow">What's New</p>
+      <h2>The PSG Partner Portal just got a lot more useful</h2>
+      <p>
+        Alongside LearnMedicare.org, the PSG Partner Portal — our agent and client management
+        platform — has been expanded with new tools for agents:
+      </p>
+      <ul class="feature-list">
+        {portalUpdates.map((u) => <li>{u}</li>)}
       </ul>
     </div>
   </section>
