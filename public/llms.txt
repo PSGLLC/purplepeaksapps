@@ -1,0 +1,17 @@
+# Purple Peaks Apps
+
+> Purple Peaks Apps is the technology arm behind Price Services Group's digital tools — building software that helps independent insurance agents manage clients, get educated, and meet with confidence.
+
+## Products
+
+- [PSG Partner Portal](https://purplepeaksapps.com/portal): A back-office CRM built for independent insurance agents — lead management, e-signature workflows, client document storage, and quoting tools in one place.
+- [LearnMedicare.org](https://learnmedicare.org): A free, unbiased Medicare education platform for consumers — a 6-lesson video course, interactive calculators, and a Turning 65 (T65) guide.
+- Jitsi Video Rooms: Secure, self-hosted video meeting rooms for client consultations.
+- [Prosperity Services Group](https://prosperityservicesgroup.com): Fixed indexed annuity and safe money planning site for retirement-focused clients.
+
+## Company
+
+- [Portfolio](https://purplepeaksapps.com/portfolio): The full portfolio of sites and tools built by Purple Peaks Apps for Price Services Group and its affiliated brands.
+- [Contact](https://purplepeaksapps.com/contact): Get in touch about our software tools for insurance professionals.
+- [Privacy Policy](https://purplepeaksapps.com/privacy)
+- [Terms of Use](https://purplepeaksapps.com/terms)

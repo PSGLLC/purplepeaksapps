@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Page Not Found | Purple Peaks Apps"
+  description="The page you're looking for doesn't exist. Explore Purple Peaks Apps' software tools for insurance professionals."
+  path="/404"
+>
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">404</p>
+      <h1>Page Not Found</h1>
+      <p class="subhead">
+        We couldn't find the page you were looking for. It may have been moved or no longer exists.
+      </p>
+      <a href="/" class="btn btn-primary">Back to Home</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2b1147 100%);
+    color: #fff;
+    padding: 6rem 0;
+  }
+  .hero-inner { max-width: 700px; }
+  .hero h1 { color: #fff; font-size: clamp(2rem, 4vw, 3rem); }
+  .hero .eyebrow { color: var(--color-teal); }
+  .subhead { font-size: 1.1rem; color: #e2d4f0; margin-bottom: 1.75rem; }
+</style>
