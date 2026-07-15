@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Terms of Use',
+  url: 'https://purplepeaksapps.com/terms',
+};
+---
+<BaseLayout
+  title="Terms of Use | Purple Peaks Apps"
+  description="Terms governing your use of the Purple Peaks Apps website and software products."
+  path="/terms"
+  jsonLd={jsonLd}
+>
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">Legal</p>
+      <h1>Terms of Use</h1>
+      <p class="subhead">Effective Date: July 15, 2026</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container legal">
+      <p>
+        These Terms of Use ("Terms") govern your access to and use of purplepeaksapps.com (the
+        "Site") and any software applications made available by Purple Peaks Apps LLC, including
+        the PSG Partner Portal (collectively, the "Services"). By accessing or using the Site or
+        Services, you agree to be bound by these Terms. If you do not agree, please do not use
+        the Site or Services.
+      </p>
+
+      <h2>1. Description of Services</h2>
+      <p>
+        Purple Peaks Apps LLC develops and provides software tools for insurance professionals.
+        The Site provides general information about these tools; access to and use of any
+        specific application (such as the PSG Partner Portal) may be subject to additional
+        product-specific terms, license agreements, or account requirements provided to you
+        separately.
+      </p>
+
+      <h2>2. No Warranty; "As Is" Basis</h2>
+      <p>
+        The Site and Services are provided on an "as is" and "as available" basis, without
+        warranties of any kind, whether express, implied, or statutory, including but not limited
+        to implied warranties of merchantability, fitness for a particular purpose,
+        non-infringement, or uninterrupted or error-free operation. We do not warrant that the
+        Site or Services will meet your requirements, be available at any particular time, or be
+        free of defects, bugs, or security vulnerabilities.
+      </p>
+
+      <h2>3. No Guarantee of Results</h2>
+      <p>
+        Nothing on the Site constitutes a guarantee of any particular business outcome, cost
+        savings, efficiency gain, or performance result from using our software products. Any
+        descriptions of product features or benefits are general in nature and may vary based on
+        your specific use case, configuration, and environment.
+      </p>
+
+      <h2>4. No Guarantee of Accuracy</h2>
+      <p>
+        Software features, pricing, and availability change over time. While we strive to keep
+        this Site accurate and current, we make no warranty, express or implied, that any
+        information on the Site is complete, accurate, or up to date. Always confirm current
+        product details directly with Purple Peaks Apps LLC before making a purchasing or
+        implementation decision.
+      </p>
+
+      <h2>5. Use of the Site and Services</h2>
+      <p>
+        You agree to use the Site and Services only for lawful purposes and in a manner
+        consistent with these Terms. You may not: (a) copy, reproduce, reverse-engineer, or
+        redistribute Site content or Service software without our written permission; (b)
+        attempt to interfere with the normal operation or security of the Site or Services; or
+        (c) submit false or misleading information through any form on the Site.
+      </p>
+
+      <h2>6. Intellectual Property</h2>
+      <p>
+        All content and software on the Site, including text, graphics, logos, and application
+        code, is owned by or licensed to Purple Peaks Apps LLC and is protected by applicable
+        intellectual property laws. Except as expressly authorized (such as under a separate
+        license agreement for a specific product), you may not copy, modify, distribute, sell, or
+        lease any part of the Site or Services.
+      </p>
+
+      <h2>7. Third-Party Links and Integrations</h2>
+      <p>
+        The Site and Services may link to or integrate with third-party websites, tools, or
+        platforms for your convenience. We do not control and are not responsible for the
+        content, availability, or practices of third-party sites or services.
+      </p>
+
+      <h2>8. Limitation of Liability</h2>
+      <p>
+        To the fullest extent permitted by law, Purple Peaks Apps LLC shall not be liable for any
+        direct, indirect, incidental, special, consequential, or punitive damages arising out of
+        or related to your use of, or inability to use, the Site or Services, including any
+        business decisions made based on information found on the Site, even if we have been
+        advised of the possibility of such damages.
+      </p>
+
+      <h2>9. Communications Consent</h2>
+      <p>
+        By submitting a form on this Site, you consent to be contacted as described in our{' '}
+        <a href="/privacy">Privacy Policy</a>, including by phone, text, and email, regarding
+        your inquiry and related products and services.
+      </p>
+
+      <h2>10. Changes to These Terms</h2>
+      <p>
+        We may revise these Terms from time to time. The "Effective Date" above reflects the
+        most recent revision. Continued use of the Site or Services after changes are posted
+        constitutes acceptance of the revised Terms.
+      </p>
+
+      <h2>11. Governing Law</h2>
+      <p>
+        These Terms are governed by the laws of the State of North Carolina, without regard to
+        its conflict of law principles.
+      </p>
+
+      <h2>12. Contact Us</h2>
+      <p>
+        Questions about these Terms may be directed to Purple Peaks Apps LLC through our{' '}
+        <a href="/contact">contact page</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2b1147 100%);
+    color: #fff;
+    padding: 4rem 0;
+  }
+  .hero h1 { color: #fff; }
+  .hero .eyebrow { color: var(--color-teal); }
+  .subhead { color: #e2d4f0; }
+  .legal { max-width: 800px; }
+  .legal h2 { margin-top: 2rem; font-size: 1.3rem; }
+  .legal p, .legal li { color: var(--color-text-muted); line-height: 1.7; }
+  .legal ul { padding-left: 1.4rem; }
+</style>

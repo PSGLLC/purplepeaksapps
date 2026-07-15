@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Privacy Policy',
+  url: 'https://purplepeaksapps.com/privacy',
+};
+---
+<BaseLayout
+  title="Privacy Policy | Purple Peaks Apps"
+  description="How Purple Peaks Apps collects, uses, and protects the information you share with us."
+  path="/privacy"
+  jsonLd={jsonLd}
+>
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">Legal</p>
+      <h1>Privacy Policy</h1>
+      <p class="subhead">Effective Date: July 15, 2026</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container legal">
+      <p>
+        Purple Peaks Apps LLC ("Purple Peaks Apps," "we," "us," or "our") builds software tools
+        for insurance professionals, including the PSG Partner Portal. This Privacy Policy
+        explains what information we collect through purplepeaksapps.com (the "Site") and our
+        related applications, how we use it, and the choices available to you. By using the Site
+        or our applications, you agree to the practices described in this Policy.
+      </p>
+
+      <h2>1. Information We Collect</h2>
+      <ul>
+        <li>
+          <strong>Information you provide directly.</strong> When you submit our contact form,
+          we collect your name, email address, and message, and, if you choose to provide it,
+          your phone number.
+        </li>
+        <li>
+          <strong>Portal and application data.</strong> If you use the PSG Partner Portal or
+          another Purple Peaks Apps product, we collect the account, usage, and content
+          information necessary to operate that product, as described in any product-specific
+          documentation provided to you.
+        </li>
+        <li>
+          <strong>Automatically collected information.</strong> We automatically collect
+          technical information when you visit the Site, including your IP address, browser
+          type, device type, referring URL, pages viewed, and time spent on the Site, through
+          cookies and similar technologies described in Section 4.
+        </li>
+        <li>
+          <strong>Communications.</strong> If you contact us by phone, email, or through the
+          Site, we retain a record of that communication, including any information you
+          voluntarily provide.
+        </li>
+      </ul>
+
+      <h2>2. How We Use Your Information</h2>
+      <ul>
+        <li>Create and maintain a contact record for you in our customer relationship
+          management system (GoHighLevel, "GHL"), so we can respond to your inquiry and follow
+          up appropriately;</li>
+        <li>Provide, maintain, and improve our software products, including the PSG Partner
+          Portal;</li>
+        <li>Contact you by phone, text, or email to respond to your inquiry or discuss our
+          products and services;</li>
+        <li>Monitor and improve the Site's content, usability, security, and performance; and</li>
+        <li>Comply with applicable legal, regulatory, and recordkeeping obligations.</li>
+      </ul>
+
+      <h2>3. How Your Contact Form Submission Is Handled</h2>
+      <p>
+        When you submit the contact form on this Site, your information is transmitted securely
+        and used to automatically create or update a contact record in our GoHighLevel CRM. A
+        member of our team then reviews your message and reaches out using the contact method(s)
+        you provided. A hidden "honeypot" field on the form helps us detect and block automated
+        spam submissions; it is not visible to human visitors and no information entered into it
+        (there should be none) is used for any purpose other than spam prevention.
+      </p>
+
+      <h2>4. Cookies and Tracking Technologies</h2>
+      <p>
+        We use cookies, pixels, and similar technologies to operate the Site, remember your
+        preferences, measure traffic and engagement, and support analytics tools. You can control
+        cookies through your browser settings; disabling cookies may affect certain Site
+        functionality. We do not knowingly sell personal information, as that term is defined
+        under applicable state privacy laws.
+      </p>
+
+      <h2>5. How We Share Information</h2>
+      <p>We do not sell your personal information. We may share information with:</p>
+      <ul>
+        <li>Service providers who help us operate the Site and our applications and manage
+          contacts, including our CRM provider (GoHighLevel), hosting providers, and email/SMS
+          delivery platforms, under confidentiality obligations;</li>
+        <li>Business partners only where necessary to provide a product or service you have
+          affirmatively requested; and</li>
+        <li>Government authorities or regulators, where required by law.</li>
+      </ul>
+
+      <h2>6. Data Retention and Security</h2>
+      <p>
+        We retain contact and account information for as long as reasonably necessary to fulfill
+        the purposes described in this Policy and to comply with applicable legal and
+        contractual obligations. We use commercially reasonable administrative and technical
+        safeguards to protect your information, but no method of transmission or storage is
+        completely secure.
+      </p>
+
+      <h2>7. Your Choices and Rights</h2>
+      <p>
+        You may request access to, correction of, or deletion of the personal information we
+        hold about you, or ask us to stop contacting you, by submitting a request through our{' '}
+        <a href="/contact">contact page</a>. Depending on your state of residence, you may have
+        additional rights under applicable privacy law.
+      </p>
+
+      <h2>8. Children's Privacy</h2>
+      <p>
+        The Site is not directed to individuals under the age of 18, and we do not knowingly
+        collect personal information from children.
+      </p>
+
+      <h2>9. Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. The "Effective Date" above reflects
+        the most recent revision. Continued use of the Site after changes are posted constitutes
+        acceptance of the updated Policy.
+      </p>
+
+      <h2>10. Contact Us</h2>
+      <p>
+        Questions about this Privacy Policy may be directed to Purple Peaks Apps LLC through our{' '}
+        <a href="/contact">contact page</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2b1147 100%);
+    color: #fff;
+    padding: 4rem 0;
+  }
+  .hero h1 { color: #fff; }
+  .hero .eyebrow { color: var(--color-teal); }
+  .subhead { color: #e2d4f0; }
+  .legal { max-width: 800px; }
+  .legal h2 { margin-top: 2rem; font-size: 1.3rem; }
+  .legal p, .legal li { color: var(--color-text-muted); line-height: 1.7; }
+  .legal ul { padding-left: 1.4rem; }
+</style>
