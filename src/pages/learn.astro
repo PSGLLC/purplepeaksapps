@@ -31,12 +31,51 @@ const jsonLd = {
     url: 'https://purplepeaksapps.com',
   },
 };
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What Medicare tools does PSG offer agents?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Alongside LearnMedicare.org, the PSG Partner Portal gives agents a Drug Savings/PAP database for finding patient assistance programs, a Social Media Ad Planner, a Plan Comparison tool, a Coverage Gap Tracker to flag clients approaching the donut hole, and Client Satisfaction Surveys for gathering feedback after enrollment.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where can I learn about Medicare as an insurance agent?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'LearnMedicare.org is built for consumers, but agents can point clients to it for plain-English education, while using the PSG Partner Portal tools alongside it for their own agent-facing workflow.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the LearnMedicare course?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The LearnMedicare course is a free, 6-lesson video course covering Medicare basics, enrollment periods, and coverage options, paired with interactive calculators to estimate costs and compare plan types, and a dedicated Turning 65 (T65) guide, all with plain-English explanations and no sales pitch attached.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How can Purple Peaks Apps help my insurance agency?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Purple Peaks Apps builds the software behind Price Services Group, including the PSG Partner Portal for agent CRM and back-office work, LearnMedicare.org for consumer education, and self-hosted video conferencing for client consultations.',
+      },
+    },
+  ],
+};
 ---
 <BaseLayout
   title="LearnMedicare.org — Free Medicare Education | Purple Peaks Apps"
   description="LearnMedicare.org is a free, unbiased Medicare education platform — a 6-lesson video course, interactive calculators, and a Turning 65 guide for consumers."
   path="/learn"
-  jsonLd={jsonLd}
+  jsonLd={[jsonLd, faqJsonLd]}
 >
   <section class="hero">
     <div class="container hero-inner">

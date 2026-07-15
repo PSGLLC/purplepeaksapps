@@ -40,6 +40,22 @@ const jsonLd = {
     'Purple Peaks Apps builds internal software tools for independent insurance agents, including the PSG Partner Portal, LearnMedicare.org, self-hosted video conferencing, and Prosperity Services Group.',
 };
 
+const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Purple Peaks Apps',
+  url: 'https://purplepeaksapps.com',
+  logo: 'https://purplepeaksapps.com/brand/purplepeaksapps-logo.png',
+  image: 'https://purplepeaksapps.com/brand/purplepeaksapps-logo.png',
+  description:
+    'Purple Peaks Apps is the technology development team behind Price Services Group, building custom software for independent insurance agencies including agent CRMs, Medicare education platforms, and self-hosted video conferencing.',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer support',
+    url: 'https://purplepeaksapps.com/contact',
+  },
+};
+
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -91,7 +107,7 @@ const faqJsonLd = {
   title="Purple Peaks Apps — Building Smart Tools for Insurance Professionals"
   description="Purple Peaks Apps is the technology arm behind Price Services Group's digital tools — building software that helps independent insurance agents work smarter."
   path="/"
-  jsonLd={[jsonLd, faqJsonLd]}
+  jsonLd={[jsonLd, localBusinessJsonLd, faqJsonLd]}
 >
   <section class="hero">
     <div class="container hero-inner">
@@ -120,6 +136,79 @@ const faqJsonLd = {
           </div>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="container about-inner">
+      <p class="eyebrow">About Purple Peaks Apps</p>
+      <h2>Custom technology for independent insurance agencies</h2>
+
+      <p>
+        Purple Peaks Apps is the software development team behind Price Services Group, building
+        the internal tools that let an independent insurance agency run like a much larger
+        organization. We're not a general-purpose web shop — every product we build starts from
+        the day-to-day reality of running a Medicare and health insurance book of business:
+        chasing leads, tracking compliance deadlines, comparing plans across carriers, and keeping
+        clients informed without drowning in paperwork. That focus shows up in what we build: an
+        agent CRM and back-office portal, a free consumer-facing Medicare education platform, and
+        self-hosted video conferencing for client consultations, alongside location-specific
+        Medicare guides and retirement-planning sites for affiliated brands.
+      </p>
+
+      <p>
+        Our stack is deliberately lean. Sites in the PSG family, including this one, are built
+        with Astro and deployed on Cloudflare Pages, which keeps pages fast and inexpensive to
+        run at scale. Where a project needs a database or serverless backend logic, we reach for
+        Cloudflare D1 and Cloudflare Workers rather than standing up heavier infrastructure — the
+        same edge-first approach across every site in the family, so agents get consistent
+        performance and we get a codebase that's easier to maintain across dozens of properties.
+      </p>
+
+      <p>
+        A few of the projects this approach has produced: <a href="https://priceservicesgroup.com" target="_blank" rel="noopener noreferrer">priceservicesgroup.com</a>,
+        the primary Medicare and health insurance agency site, connecting consumers with licensed
+        insurance agents across our service area. <a href="https://local.priceservicesgroup.com" target="_blank" rel="noopener noreferrer">local.priceservicesgroup.com</a>
+        extends that reach with thousands of hyper-local, county-level Medicare guide pages so
+        consumers searching for coverage information in their specific area can find it — and find
+        a local agent. <a href="https://learnmedicare.org" target="_blank" rel="noopener noreferrer">learnmedicare.org</a>
+        takes a different angle: free, unbiased Medicare education with no sales pitch attached,
+        built to help people understand enrollment periods and coverage options before they ever
+        talk to an agent. And the PSG Partner Portal, our agent-facing CRM, is where the leads,
+        e-signatures, documents, and quoting from all of those consumer touchpoints come together
+        for the agents actually doing the work. Together, this family of sites powers Price
+        Services Group's entire digital presence, from first search to signed application.
+      </p>
+
+      <p>
+        Insurance agencies have needs that off-the-shelf software rarely fits well. Compliance
+        requirements are strict and change often. Lead flow needs to connect cleanly to
+        e-signature and enrollment workflows instead of living in a separate disconnected tool.
+        Consumers researching Medicare want plain-English answers, not a sales funnel, at least
+        until they're ready to talk to someone. Generic CRMs and website builders are built for a
+        much broader audience and force agencies to bend their process around the software. We
+        build the other way around: software shaped by how an agency actually operates day to
+        day, so the tools fit the work instead of the other way around.
+      </p>
+
+      <p>
+        We also think about these products as a connected system rather than a set of standalone
+        sites. A consumer might first land on a location-specific Medicare guide, move to
+        LearnMedicare.org to understand their options in plain language, and eventually reach out
+        through priceservicesgroup.com — while the agent handling that lead works the whole
+        relationship inside the Partner Portal, from first contact through signed enrollment
+        paperwork. Building all of these pieces ourselves, on a shared and consistent stack, means
+        the handoffs between them are seamless instead of stitched together with workarounds, and
+        it means we can add a new location page, a new portal feature, or a new education module
+        without waiting on an outside vendor's roadmap.
+      </p>
+
+      <p>
+        If you run an independent insurance agency and are outgrowing spreadsheets, disconnected
+        CRMs, or a website that doesn't reflect how you actually work with clients, we'd like to
+        hear about it. <a href="/contact">Get in touch</a> and we can talk through what a custom
+        portal, education site, or agency website could look like for your team.
+      </p>
     </div>
   </section>
 
@@ -153,6 +242,20 @@ const faqJsonLd = {
     font-size: 0.92rem;
   }
   :root[data-theme="dark"] .product-link { color: var(--color-teal); }
+
+  .about-section { padding: 4rem 0; }
+  .about-inner { max-width: 780px; margin: 0 auto; }
+  .about-inner .eyebrow { color: var(--color-purple); }
+  :root[data-theme="dark"] .about-inner .eyebrow { color: var(--color-teal); }
+  .about-inner h2 { margin-bottom: 1.25rem; }
+  .about-inner p {
+    color: var(--color-text);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+  .about-inner a { color: var(--color-purple); }
+  :root[data-theme="dark"] .about-inner a { color: var(--color-teal); }
 
   .cta-section {
     background: var(--color-purple);
