@@ -15,7 +15,40 @@ interface Props {
 const { title, description, path, jsonLd, ogImage = '/brand/purplepeaksapps-logo.png' } = Astro.props;
 const canonical = new URL(path, SITE_URL).toString();
 const ogImageUrl = new URL(ogImage, SITE_URL).toString();
-const jsonLdEntries = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
+
+const segments = path.split('/').filter(Boolean);
+const crumbLabels: Record<string, string> = {
+  portal: 'Portal',
+  learn: 'Learn',
+  portfolio: 'Portfolio',
+  contact: 'Contact',
+  faq: 'FAQ',
+  privacy: 'Privacy Policy',
+  terms: 'Terms of Use',
+};
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: SITE_URL + '/',
+    },
+    ...segments.map((seg, i) => ({
+      '@type': 'ListItem',
+      position: i + 2,
+      name: crumbLabels[seg] ?? seg.charAt(0).toUpperCase() + seg.slice(1),
+      item: new URL('/' + segments.slice(0, i + 1).join('/'), SITE_URL).toString(),
+    })),
+  ],
+};
+
+const jsonLdEntries = [
+  ...(Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : []),
+  ...(segments.length > 0 ? [breadcrumbJsonLd] : []),
+];
 ---
 <!doctype html>
 <html lang="en">
@@ -23,6 +56,10 @@ const jsonLdEntries = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/brand/purplepeaksapps-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />

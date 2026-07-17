@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const generalFaqs = [
+  {
+    q: 'What does Purple Peaks Apps build?',
+    a: "Purple Peaks Apps is the technology arm behind Price Services Group's digital tools. We build software that helps independent insurance agents manage clients, get educated, and meet with confidence, including an agent CRM and back-office portal, a free consumer education platform, and self-hosted video conferencing for client consultations.",
+  },
+  {
+    q: 'Who is Purple Peaks Apps built for?',
+    a: 'Our products are built for independent insurance agents and agencies, with tools spanning agent-facing CRM and quoting software, consumer-facing education platforms, and retirement planning sites like Prosperity Services Group.',
+  },
+  {
+    q: 'How can Purple Peaks Apps help my insurance agency?',
+    a: 'Purple Peaks Apps builds the software behind Price Services Group, including the PSG Partner Portal for agent CRM and back-office work, LearnMedicare.org for consumer education, and self-hosted video conferencing for client consultations.',
+  },
+  {
+    q: 'Does Purple Peaks Apps offer video conferencing for client meetings?',
+    a: 'Yes. Our Jitsi Video Rooms product provides secure, self-hosted video meeting rooms for client consultations, giving agents a private, reliable way to meet clients face-to-face online.',
+  },
+];
+
+const portalFaqs = [
+  {
+    q: 'What is the PSG Partner Portal?',
+    a: 'The PSG Partner Portal is a back-office CRM built specifically for independent insurance agents. It brings lead management, e-signature workflows, client document storage, plan comparison and quoting tools, and credentials/compliance tracking together in one agent-facing workspace.',
+  },
+  {
+    q: 'Who can access the PSG Partner Portal?',
+    a: "The Partner Portal is built for independent insurance agents, particularly those working in Medicare and health insurance, who need a lightweight, agent-facing system rather than a heavyweight enterprise CRM. It's not a consumer-facing product.",
+  },
+  {
+    q: 'What features does the PSG Partner Portal include?',
+    a: 'The portal includes lead capture and lead scoring, e-signature workflows for client documents and enrollment paperwork, secure client document storage, plan comparison and quoting tools, and credentials and compliance tracking so licensing and certifications stay current.',
+  },
+  {
+    q: 'What Medicare tools does PSG offer agents?',
+    a: 'Alongside LearnMedicare.org, the PSG Partner Portal gives agents a Drug Savings/PAP database for finding patient assistance programs, a Social Media Ad Planner, a Plan Comparison tool, a Coverage Gap Tracker to flag clients approaching the donut hole, and Client Satisfaction Surveys for gathering feedback after enrollment.',
+  },
+  {
+    q: 'How do I get access to the Partner Portal?',
+    a: "Reach out through the contact form on this site and we'll walk you through the portal and get you set up with access.",
+  },
+];
+
+const learnFaqs = [
+  {
+    q: 'What is LearnMedicare.org?',
+    a: 'LearnMedicare.org is a free Medicare education platform featuring a 6-lesson video course, interactive calculators, and a T65 guide for people approaching Medicare eligibility.',
+  },
+  {
+    q: 'What is the LearnMedicare course?',
+    a: 'The LearnMedicare course is a free, 6-lesson video course covering Medicare basics, enrollment periods, and coverage options, paired with interactive calculators to estimate costs and compare plan types, and a dedicated Turning 65 (T65) guide, all with plain-English explanations and no sales pitch attached.',
+  },
+  {
+    q: 'Where can I learn about Medicare as an insurance agent?',
+    a: 'LearnMedicare.org is built for consumers, but agents can point clients to it for plain-English education, while using the PSG Partner Portal tools alongside it for their own agent-facing workflow.',
+  },
+];
+
+const allFaqs = [...generalFaqs, ...portalFaqs, ...learnFaqs];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: allFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.a,
+    },
+  })),
+};
+---
+<BaseLayout
+  title="FAQ — Purple Peaks Apps"
+  description="Answers to common questions about Purple Peaks Apps, the PSG Partner Portal, and LearnMedicare.org."
+  path="/faq"
+  jsonLd={faqJsonLd}
+>
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">FAQ</p>
+      <h1>Frequently Asked Questions</h1>
+      <p class="subhead">
+        Answers about Purple Peaks Apps, the PSG Partner Portal, and LearnMedicare.org.
+      </p>
+      <p class="reviewed">Last reviewed: July 2026</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container faq-container">
+      <h2>General</h2>
+      <div class="faq-list">
+        {generalFaqs.map((f) => (
+          <details class="faq-item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <h2>PSG Partner Portal</h2>
+      <p class="section-lede">See the full <a href="/portal">Portal page</a> for a feature overview.</p>
+      <div class="faq-list">
+        {portalFaqs.map((f) => (
+          <details class="faq-item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <h2>LearnMedicare.org</h2>
+      <p class="section-lede">See the full <a href="/learn">Learn page</a> for what's inside the course.</p>
+      <div class="faq-list">
+        {learnFaqs.map((f) => (
+          <details class="faq-item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-inner">
+      <h2>Still have a question?</h2>
+      <p>We'd like to hear from you.</p>
+      <a href="/contact" class="btn btn-teal">Get in Touch</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2b1147 100%);
+    color: #fff;
+    padding: 5.5rem 0;
+  }
+  .hero-inner { max-width: 700px; }
+  .hero h1 { color: #fff; font-size: clamp(2rem, 4vw, 3rem); }
+  .hero .eyebrow { color: var(--color-teal); }
+  .subhead { font-size: 1.1rem; color: #e2d4f0; margin-bottom: 0; }
+  .reviewed { color: #b6a4cb; font-size: 0.85rem; margin-top: 0.6rem; }
+
+  .faq-container { max-width: 780px; margin: 0 auto; }
+  .faq-container h2 { margin-top: 2.5rem; margin-bottom: 0.5rem; }
+  .faq-container h2:first-child { margin-top: 0; }
+  .section-lede { color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1rem; }
+
+  .faq-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .faq-item {
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    padding: 0.9rem 1.1rem;
+  }
+  .faq-item summary {
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--color-text);
+  }
+  .faq-item p {
+    color: var(--color-text-muted);
+    margin-top: 0.6rem;
+    margin-bottom: 0;
+    line-height: 1.7;
+  }
+
+  .cta-section {
+    background: var(--color-purple);
+    color: #fff;
+    text-align: center;
+  }
+  .cta-inner h2 { color: #fff; }
+  .cta-inner p { color: #f0e6f8; margin-bottom: 1.5rem; }
+</style>
