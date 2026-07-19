@@ -13,7 +13,8 @@ interface Props {
 }
 
 const { title, description, path, jsonLd, ogImage = '/brand/purplepeaksapps-logo.png' } = Astro.props;
-const canonical = new URL(path, SITE_URL).toString();
+const normalizedPath = path.includes('.') || path.endsWith('/') ? path : `${path}/`;
+const canonical = new URL(normalizedPath, SITE_URL).toString();
 const ogImageUrl = new URL(ogImage, SITE_URL).toString();
 
 const segments = path.split('/').filter(Boolean);
