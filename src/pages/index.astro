@@ -40,6 +40,16 @@ const jsonLd = {
     'Purple Peaks Apps builds internal software tools for independent insurance agents, including the PSG Partner Portal, LearnMedicare.org, self-hosted video conferencing, and Prosperity Services Group.',
 };
 
+const speakableJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  url: 'https://purplepeaksapps.com/',
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['.speakable-headline', '.speakable-answer'],
+  },
+};
+
 const localBusinessJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
@@ -107,13 +117,13 @@ const faqJsonLd = {
   title="Purple Peaks Apps — Building Smart Tools for Insurance Professionals"
   description="Purple Peaks Apps is the technology arm behind Price Services Group's digital tools — building software that helps independent insurance agents work smarter."
   path="/"
-  jsonLd={[jsonLd, localBusinessJsonLd, faqJsonLd]}
+  jsonLd={[jsonLd, localBusinessJsonLd, faqJsonLd, speakableJsonLd]}
 >
   <section class="hero">
     <div class="container hero-inner">
       <p class="eyebrow">Purple Peaks Apps</p>
-      <h1>Building Smart Tools for Insurance Professionals.</h1>
-      <p class="subhead">
+      <h1 class="speakable-headline">Building Smart Tools for Insurance Professionals.</h1>
+      <p class="subhead speakable-answer">
         We're the technology arm behind Price Services Group's digital tools — building the
         software that helps independent insurance agents manage clients, get educated, and meet
         with confidence. Our work spans an agent CRM and back-office portal, a free consumer

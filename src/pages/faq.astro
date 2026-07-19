@@ -72,17 +72,27 @@ const faqJsonLd = {
     },
   })),
 };
+
+const speakableJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  url: 'https://purplepeaksapps.com/faq/',
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['.speakable-headline', '.speakable-question', '.speakable-answer'],
+  },
+};
 ---
 <BaseLayout
   title="FAQ — Purple Peaks Apps"
   description="Answers to common questions about Purple Peaks Apps, the PSG Partner Portal, and LearnMedicare.org."
   path="/faq"
-  jsonLd={faqJsonLd}
+  jsonLd={[faqJsonLd, speakableJsonLd]}
 >
   <section class="hero">
     <div class="container hero-inner">
       <p class="eyebrow">FAQ</p>
-      <h1>Frequently Asked Questions</h1>
+      <h1 class="speakable-headline">Frequently Asked Questions</h1>
       <p class="subhead">
         Answers about Purple Peaks Apps, the PSG Partner Portal, and LearnMedicare.org.
       </p>
@@ -96,8 +106,8 @@ const faqJsonLd = {
       <div class="faq-list">
         {generalFaqs.map((f) => (
           <details class="faq-item">
-            <summary>{f.q}</summary>
-            <p>{f.a}</p>
+            <summary class="speakable-question">{f.q}</summary>
+            <p class="speakable-answer">{f.a}</p>
           </details>
         ))}
       </div>
@@ -107,8 +117,8 @@ const faqJsonLd = {
       <div class="faq-list">
         {portalFaqs.map((f) => (
           <details class="faq-item">
-            <summary>{f.q}</summary>
-            <p>{f.a}</p>
+            <summary class="speakable-question">{f.q}</summary>
+            <p class="speakable-answer">{f.a}</p>
           </details>
         ))}
       </div>
@@ -118,8 +128,8 @@ const faqJsonLd = {
       <div class="faq-list">
         {learnFaqs.map((f) => (
           <details class="faq-item">
-            <summary>{f.q}</summary>
-            <p>{f.a}</p>
+            <summary class="speakable-question">{f.q}</summary>
+            <p class="speakable-answer">{f.a}</p>
           </details>
         ))}
       </div>
