@@ -154,6 +154,23 @@ const faqJsonLd = {
     </div>
   </section>
 
+  <section class="apps-teaser">
+    <div class="container">
+      <p class="eyebrow">Our Apps</p>
+      <h2>Tools you can use right now.</h2>
+      <p class="apps-teaser-sub">We build focused apps for real tasks — no account required.</p>
+      <div class="grid grid-3 apps-teaser-grid">
+        <div class="card product-card">
+          <span class="app-badge">AI-Powered</span>
+          <h3>ProShot AI</h3>
+          <p>Sharpen, retouch, and upgrade headshots and product photos in seconds — no editing skills or software required.</p>
+          <a href="https://proshot-ai.higgsfield.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Try it &rarr;</a>
+        </div>
+      </div>
+      <a href="/apps" class="apps-teaser-link">See all apps &rarr;</a>
+    </div>
+  </section>
+
   <section class="about-section">
     <div class="container about-inner">
       <p class="eyebrow">About Purple Peaks Apps</p>
@@ -250,6 +267,32 @@ const faqJsonLd = {
     font-size: 0.92rem;
   }
   :root[data-theme="dark"] .product-link { color: var(--color-teal); }
+
+  .apps-teaser { padding: 4rem 0; background: var(--color-bg-alt); }
+  .apps-teaser-sub { color: var(--color-text-muted); font-size: 1.05rem; margin: 0.5rem 0 2rem; }
+  .apps-teaser-grid { max-width: 420px; margin-bottom: 1.5rem; }
+  .apps-teaser-link {
+    display: inline-block;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--color-purple);
+  }
+  :root[data-theme="dark"] .apps-teaser-link { color: var(--color-teal); }
+
+  .app-badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: rgba(81, 222, 204, 0.15);
+    color: var(--color-purple);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    margin-bottom: 0.3rem;
+  }
+  :root[data-theme="dark"] .app-badge { color: var(--color-teal); }
 
   .about-section { padding: 4rem 0; }
   .about-inner { max-width: 780px; margin: 0 auto; }
