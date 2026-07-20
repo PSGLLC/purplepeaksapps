@@ -3,6 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const products = [
   {
+    name: 'ProShot AI',
+    desc: 'AI-powered photo enhancement that sharpens, retouches, and upgrades headshots and product photos in seconds — no editing skills required.',
+    href: 'https://proshot-ai.higgsfield.app/',
+    cta: 'Try it',
+    external: true,
+  },
+  {
     name: 'PSG Partner Portal',
     desc: 'A back-office CRM built for independent insurance agents — bringing lead management, e-signature workflows, and quoting tools into one place so agents can spend less time on admin and more time with clients.',
     href: '/portal',
@@ -26,13 +33,6 @@ const products = [
     desc: 'Fixed indexed annuity and safe money planning site for retirement-focused clients.',
     href: 'https://prosperityservicesgroup.com',
     cta: 'Visit site',
-    external: true,
-  },
-  {
-    name: 'ProShot AI',
-    desc: 'AI-powered photo enhancement that sharpens, retouches, and upgrades headshots and product photos in seconds — no editing skills required.',
-    href: 'https://proshot-ai.higgsfield.app/',
-    cta: 'Try it',
     external: true,
   },
 ];
@@ -121,8 +121,8 @@ const faqJsonLd = {
 };
 ---
 <BaseLayout
-  title="Purple Peaks Apps — Building Smart Tools for Insurance Professionals"
-  description="Purple Peaks Apps is the technology arm behind Price Services Group's digital tools — building software that helps independent insurance agents work smarter."
+  title="Purple Peaks Apps — Smart Tools for Small Businesses"
+  description="Purple Peaks Apps builds digital tools for small businesses — client portals, education platforms, AI-powered apps, and the websites that tie it all together."
   path="/"
   jsonLd={[jsonLd, localBusinessJsonLd, faqJsonLd, speakableJsonLd]}
 >
@@ -141,7 +141,7 @@ const faqJsonLd = {
   <section>
     <div class="container">
       <p class="eyebrow">What We Build</p>
-      <h2>Software for the way agents actually work.</h2>
+      <h2>Tools and apps built for the way small businesses actually work.</h2>
       <div class="grid grid-4">
         {products.map((p) => (
           <div class="card product-card">
