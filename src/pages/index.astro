@@ -28,6 +28,13 @@ const products = [
     cta: 'Visit site',
     external: true,
   },
+  {
+    name: 'ProShot AI',
+    desc: 'AI-powered photo enhancement that sharpens, retouches, and upgrades headshots and product photos in seconds — no editing skills required.',
+    href: 'https://proshot-ai.higgsfield.app/',
+    cta: 'Try it',
+    external: true,
+  },
 ];
 
 const jsonLd = {
@@ -122,12 +129,10 @@ const faqJsonLd = {
   <section class="hero">
     <div class="container hero-inner">
       <p class="eyebrow">Purple Peaks Apps</p>
-      <h1 class="speakable-headline">Building Smart Tools for Insurance Professionals.</h1>
+      <h1 class="speakable-headline">Building Smart Tools for Small Businesses.</h1>
       <p class="subhead speakable-answer">
-        We're the technology arm behind Price Services Group's digital tools — building the
-        software that helps independent insurance agents manage clients, get educated, and meet
-        with confidence. Our work spans an agent CRM and back-office portal, a free consumer
-        education platform, and self-hosted video conferencing for client consultations.
+        We build the software, sites, and digital tools that help small businesses run smarter —
+        from client portals and education platforms to AI-powered apps and self-hosted video.
       </p>
       <a href="/contact" class="btn btn-primary">Get in Touch</a>
     </div>
@@ -152,72 +157,65 @@ const faqJsonLd = {
   <section class="about-section">
     <div class="container about-inner">
       <p class="eyebrow">About Purple Peaks Apps</p>
-      <h2>Custom technology for independent insurance agencies</h2>
+      <h2>Custom technology for small businesses</h2>
 
       <p>
-        Purple Peaks Apps is the software development team behind Price Services Group, building
-        the internal tools that let an independent insurance agency run like a much larger
-        organization. We're not a general-purpose web shop — every product we build starts from
-        the day-to-day reality of running a Medicare and health insurance book of business:
-        chasing leads, tracking compliance deadlines, comparing plans across carriers, and keeping
-        clients informed without drowning in paperwork. That focus shows up in what we build: an
-        agent CRM and back-office portal, a free consumer-facing Medicare education platform, and
-        self-hosted video conferencing for client consultations, alongside location-specific
-        Medicare guides and retirement-planning sites for affiliated brands.
+        Purple Peaks Apps is a software development team that builds custom tools for small
+        businesses — client portals, education platforms, AI-powered apps, and the websites that
+        tie it all together. We're not a general-purpose web shop cranking out templates. Every
+        product we build starts from the day-to-day reality of running a small business: chasing
+        leads, keeping clients informed, managing documents and workflows, and doing it all
+        without a team of developers on staff. That's the gap we fill.
       </p>
 
       <p>
-        Our stack is deliberately lean. Sites in the PSG family, including this one, are built
-        with Astro and deployed on Cloudflare Pages, which keeps pages fast and inexpensive to
-        run at scale. Where a project needs a database or serverless backend logic, we reach for
-        Cloudflare D1 and Cloudflare Workers rather than standing up heavier infrastructure — the
-        same edge-first approach across every site in the family, so agents get consistent
-        performance and we get a codebase that's easier to maintain across dozens of properties.
+        Our stack is deliberately lean. Sites we build are put together with Astro and deployed
+        on Cloudflare Pages, which keeps pages fast and inexpensive to run at scale. Where a
+        project needs a database or serverless backend logic, we reach for Cloudflare D1 and
+        Cloudflare Workers rather than standing up heavier infrastructure — the same edge-first
+        approach across every project, so clients get consistent performance and we get a
+        codebase that's easy to maintain across many properties.
       </p>
 
       <p>
-        A few of the projects this approach has produced: <a href="https://priceservicesgroup.com" target="_blank" rel="noopener noreferrer">priceservicesgroup.com</a>,
-        the primary Medicare and health insurance agency site, connecting consumers with licensed
-        insurance agents across our service area. <a href="https://local.priceservicesgroup.com" target="_blank" rel="noopener noreferrer">local.priceservicesgroup.com</a>
-        extends that reach with thousands of hyper-local, county-level Medicare guide pages so
-        consumers searching for coverage information in their specific area can find it — and find
-        a local agent. <a href="https://learnmedicare.org" target="_blank" rel="noopener noreferrer">learnmedicare.org</a>
-        takes a different angle: free, unbiased Medicare education with no sales pitch attached,
-        built to help people understand enrollment periods and coverage options before they ever
-        talk to an agent. And the PSG Partner Portal, our agent-facing CRM, is where the leads,
-        e-signatures, documents, and quoting from all of those consumer touchpoints come together
-        for the agents actually doing the work. Together, this family of sites powers Price
-        Services Group's entire digital presence, from first search to signed application.
+        Price Services Group, an independent Medicare and health insurance agency, is our biggest
+        and longest-running client, and a good example of what this looks like in practice. For
+        PSG we've built <a href="https://priceservicesgroup.com" target="_blank" rel="noopener noreferrer">priceservicesgroup.com</a>,
+        the agency's primary site connecting consumers with licensed agents;
+        <a href="https://local.priceservicesgroup.com" target="_blank" rel="noopener noreferrer">local.priceservicesgroup.com</a>,
+        with thousands of hyper-local, county-level guide pages; <a href="https://learnmedicare.org" target="_blank" rel="noopener noreferrer">learnmedicare.org</a>,
+        a free education platform with no sales pitch attached; and the PSG Partner Portal, an
+        agent-facing CRM where leads, e-signatures, documents, and quoting all come together.
+        We've also built tools that go beyond any one industry, like ProShot AI, our AI-powered
+        photo enhancement app for headshots and product photos.
       </p>
 
       <p>
-        Insurance agencies have needs that off-the-shelf software rarely fits well. Compliance
-        requirements are strict and change often. Lead flow needs to connect cleanly to
-        e-signature and enrollment workflows instead of living in a separate disconnected tool.
-        Consumers researching Medicare want plain-English answers, not a sales funnel, at least
-        until they're ready to talk to someone. Generic CRMs and website builders are built for a
-        much broader audience and force agencies to bend their process around the software. We
-        build the other way around: software shaped by how an agency actually operates day to
-        day, so the tools fit the work instead of the other way around.
+        Small businesses have needs that off-the-shelf software rarely fits well. Workflows are
+        specific to how the business actually operates, not how a generic SaaS product assumes
+        every customer works. Customers want plain, direct answers, not a sales funnel, until
+        they're ready to talk to someone. Generic CRMs, website builders, and app platforms are
+        built for the broadest possible audience and force a business to bend its process around
+        the software. We build the other way around: software shaped by how the business actually
+        works, so the tools fit the work instead of the other way around.
       </p>
 
       <p>
-        We also think about these products as a connected system rather than a set of standalone
-        sites. A consumer might first land on a location-specific Medicare guide, move to
-        LearnMedicare.org to understand their options in plain language, and eventually reach out
-        through priceservicesgroup.com — while the agent handling that lead works the whole
-        relationship inside the Partner Portal, from first contact through signed enrollment
-        paperwork. Building all of these pieces ourselves, on a shared and consistent stack, means
-        the handoffs between them are seamless instead of stitched together with workarounds, and
-        it means we can add a new location page, a new portal feature, or a new education module
-        without waiting on an outside vendor's roadmap.
+        We also think about these products as connected systems rather than standalone tools. A
+        customer might first land on a business's website, move to an education or self-service
+        tool to understand their options, and eventually reach out to the business directly —
+        while the team on the other end works the relationship inside a portal built for exactly
+        that job. Building these pieces ourselves, on a shared and consistent stack, means the
+        handoffs between them are seamless instead of stitched together with workarounds, and it
+        means we can add a new page, a new portal feature, or a new tool without waiting on an
+        outside vendor's roadmap.
       </p>
 
       <p>
-        If you run an independent insurance agency and are outgrowing spreadsheets, disconnected
-        CRMs, or a website that doesn't reflect how you actually work with clients, we'd like to
-        hear about it. <a href="/contact">Get in touch</a> and we can talk through what a custom
-        portal, education site, or agency website could look like for your team.
+        If you run a small business and are outgrowing spreadsheets, disconnected tools, or a
+        website that doesn't reflect how you actually work with clients, we'd like to hear about
+        it. <a href="/contact">Get in touch</a> and we can talk through what a custom portal,
+        app, or website could look like for your team.
       </p>
     </div>
   </section>
