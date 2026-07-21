@@ -10,14 +10,35 @@ const apps = [
   },
 ];
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: 'Apps | Purple Peaks Apps',
-  url: 'https://purplepeaksapps.com/apps',
-  description:
-    'Simple, focused apps built by Purple Peaks Apps that you can use right now — no setup, no subscription required.',
-};
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Apps | Purple Peaks Apps',
+    url: 'https://purplepeaksapps.com/apps',
+    description:
+      'Simple, focused apps built by Purple Peaks Apps that you can use right now — no setup, no subscription required.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'ProShot AI',
+    applicationCategory: 'PhotoApplication',
+    operatingSystem: 'Web',
+    url: 'https://proshot-ai.higgsfield.app/',
+    description:
+      'AI-powered photo enhancement tool that sharpens, retouches, and upgrades headshots and product photos in seconds.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Purple Peaks Apps LLC',
+    },
+  },
+];
 ---
 <BaseLayout
   title="Apps — Simple Tools You Can Use Right Now | Purple Peaks Apps"
