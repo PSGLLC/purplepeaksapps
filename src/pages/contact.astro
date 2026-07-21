@@ -45,6 +45,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </form>
     </div>
   </section>
+
+  <section class="section-alt">
+    <div class="container form-container">
+      <div class="card custom-tool-card">
+        <h2>Need something built?</h2>
+        <p class="custom-tool-sub">We build custom portals, apps, and websites for small businesses. Tell us what you're working on and we'll see if we can help.</p>
+
+        <form id="custom-tool-form">
+          <div class="form-field">
+            <label for="ct-name">Name</label>
+            <input type="text" id="ct-name" name="name" required autocomplete="name" />
+          </div>
+          <div class="form-field">
+            <label for="ct-email">Email</label>
+            <input type="email" id="ct-email" name="email" required autocomplete="email" />
+          </div>
+          <div class="form-field">
+            <label for="ct-details">What do you need built?</label>
+            <textarea id="ct-details" name="details" rows="5" required></textarea>
+          </div>
+
+          <!-- Honeypot -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="ct-website">Website</label>
+            <input type="text" id="ct-website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="ct-submit-btn">Send Request</button>
+          <p id="ct-form-status" class="form-status" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
@@ -63,6 +96,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .form-status { margin-top: 1rem; font-weight: 600; }
   .form-status.success { color: var(--color-teal); }
   .form-status.error { color: #c0392b; }
+
+  .custom-tool-card h2 { margin-bottom: 0.5rem; }
+  .custom-tool-sub { color: var(--color-text-muted); margin-bottom: 1.5rem; }
 </style>
 
 <script>
@@ -112,6 +148,54 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send Message';
+    }
+  });
+
+  const ctForm = document.getElementById('custom-tool-form') as HTMLFormElement | null;
+  const ctStatus = document.getElementById('ct-form-status');
+  const ctSubmitBtn = document.getElementById('ct-submit-btn') as HTMLButtonElement | null;
+
+  ctForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!ctForm || !ctStatus || !ctSubmitBtn) return;
+
+    const formData = new FormData(ctForm);
+    const payload = {
+      name: String(formData.get('name') ?? '').trim(),
+      email: String(formData.get('email') ?? '').trim(),
+      details: String(formData.get('details') ?? '').trim(),
+      website: String(formData.get('website') ?? ''),
+      pagePath: window.location.pathname,
+    };
+
+    ctSubmitBtn.disabled = true;
+    ctSubmitBtn.textContent = 'Sending...';
+    ctStatus.textContent = '';
+    ctStatus.className = 'form-status';
+
+    try {
+      const res = await fetch('/api/custom-tool-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+
+      if (res.ok && data.ok) {
+        ctForm.style.display = 'none';
+        ctStatus.textContent = "Thanks — we'll take a look and be in touch soon.";
+        ctStatus.className = 'form-status success';
+        ctStatus.style.display = 'block';
+      } else {
+        ctStatus.textContent = data.error || 'Something went wrong. Please try again.';
+        ctStatus.className = 'form-status error';
+      }
+    } catch {
+      ctStatus.textContent = 'Something went wrong. Please try again.';
+      ctStatus.className = 'form-status error';
+    } finally {
+      ctSubmitBtn.disabled = false;
+      ctSubmitBtn.textContent = 'Send Request';
     }
   });
 </script>
